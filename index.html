@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="./css/video.css">
+    <link rel="stylesheet" href="./css/pdf.css">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="header">
+		<span id="title"></span>
+		<img id="videoBtn" src="img/btn.png" />
+		<img id="setting" src="img/setting.png" />
+
+	</header>
+	<div class="dialog">
+		<img src="img/topBtn.png" />
+		<div id="update"><span>更新目录</span></div>
+		<div id="download"><span>下载媒体库资源</span></div>
+		<div><span>......</span></div>
+	</div>
+	<div class="content">
+		<div class="classList1">
+			<ul  class="ulTopLeft">
+			</ul>
+		</div>
+		<div class="classList2">
+			<ul class="ulTopLeft">	
+			</ul>
+		</div>
+		<div class="classList3">
+			<ul>
+			</ul>
+		</div>
+		<div class="classList4">		
+		</div>
+	</div>
+	 <!-- 视频弹出框 -->
+	 <div class="videoModel model">
+			<div class="modelTitle">
+				<span class="fl"></span>
+				<img class="exit" src="./img/exit.png" alt="">
+			</div>
+			<div class="whiteBG">
+					<!-- <video  id="video" class="playTheVideo"   src="http://192.168.1.144/img/Sensor.mp4" poster="http://192.168.1.144/img/Sensor图片.jpg"   style="   width: 873px;;height: 76%;" onended="videoEnd()">
+					</video> -->
+					<img class="playTheVideo playBig" src="./img/playbig.png" alt="">
+					<div id="controlWrap">
+						<div id="progressWrap">
+						<div id="playProgress">
+						</div>
+						</div>
+						<span id="play_btn">
+							<img src="./img/play.png" alt="">
+						</span>
+						<span id="pause_btn" >
+							<img src="./img/pause.png" alt="">
+						</span>
+						<div class="times">
+								<span id="now_time" ></span>
+								<span class="" >
+									/
+								</span>
+								<span id="duration" ></span>
+						</div>
+					
+					</div>
+			</div>
+	</div>
+	<!-- pdf弹出框 -->
+	<div class="pdfModel model">
+			<div class="modelTitle">
+					<span class="fl">pdf标题</span>
+					<img class="exit" onmousedown="mouseDown()" src="./img/exit.png" alt="">
+				</div>
+				<div class="whiteBG">
+								
+								<div class="pdfCenter center">
+
+												<!-- <canvas  id="the-canvas"></canvas> -->
+												<img class="loadding" src="./img//Loading_icon.gif" alt="">
+										</div>
+										
+										<div class="center previousNext">
+												<img class="pdfIcon" id="prev" src="./img/GreyPrevious.png" alt="">
+												<img class="pdfIcon" id="next" src="./img/Next.png" alt="">
+												<!-- 页数 -->
+												<span style="display: none">Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+										</div>
+				</div>
+		   
+	</div>
+	<!-- <video id="video"  src="./video/pingbao.mp4"></video> -->
+	<video id="video"  src=""></video>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+		<!-- <script src="./js/pdfDIY.js"></script> -->
+
+		<script src="./js/pdf.js"></script>
+
+	<script src="./js/jquery.signalR-2.2.3.min.js"></script>
+	<!--<script src="/signalr/hubs"></script>-->
+	<script src="./js/DigiTiger.MessageService.RealTimeFunctionService.Client.js"></script>
+	<script src="./js/is.js"></script>
+
+	<!-- 发送即时通讯 -->
+	<script src='./js/post.js'></script>
+	<script src='./js/video.js'></script>
+	
+		<script type="text/javascript">
+
+	</script>
+
+</body>
+
+</html>

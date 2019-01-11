@@ -1,0 +1,175 @@
+
+  /* video弹窗 */
+  .videoModel {
+    display: none;
+  }
+  /* pdf弹窗 */
+  .pdfModel {
+    display: none;
+  }
+  #video1 {
+    background: #000;
+    margin-top: 30px;
+    width: 876px;
+  }
+  #controlWrap{
+    width: 88%;
+    margin-left: 6%;
+  }
+  #progressWrap{
+    background-color: rgb(191, 191, 191);
+    height: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  /* #progressWrap:hover{
+    height: 10px;
+  } */
+  #playProgress{
+      background: -webkit-linear-gradient(left, #0082c0, #0058df); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #0082c0, #0058df); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #0082c0, #0058df); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #0082c0, #0058df); /* 标准的语法（必须放在最后） */
+    width: 0px;
+    height: 100%;
+  }
+  .modelTitle {
+    background: -webkit-linear-gradient(left, #0082c0, #0058df);
+    background: -o-linear-gradient(right, #0082c0, #0058df);
+    background: -moz-linear-gradient(right, #0082c0, #0058df);
+    background: linear-gradient(to right, #0082c0, #0058df);
+    /* padding: 1.6%; */
+    line-height: 65px;
+    height: 65px;
+    /* position: absolute; */
+    padding-bottom: 0;
+	background: -webkit-linear-gradient(left,#0082c0,#0058df);
+  font-size: 1.2vw;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: #fff;
+    position: relative;
+  }
+  video::-webkit-media-controls {
+display:none !important;
+}
+
+#pause_btn img {
+  height: 30px;
+  margin-right: 30px;
+  float: left;
+}
+
+#play_btn img {
+  height: 30px;
+  margin-right: 30px;
+  float: left;
+}
+.times {
+  height: 30px;
+  line-height: 30px;
+  float: left;
+}
+.model{
+  position: absolute;
+  width: 1000px;
+  /* height: 730px; */
+  height: 77%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+
+  border-radius: 15px;
+  background: -webkit-linear-gradient(left, #0082c0, #0058df);
+    background: -o-linear-gradient(right, #0082c0, #0058df);
+    background: -moz-linear-gradient(right, #0082c0, #0058df);
+    background: linear-gradient(to right, #0082c0, #0058df);
+  overflow: hidden;
+}
+
+.whiteBG {
+  margin-left: 3px;
+  margin-right: 3px;
+  /* height: 655px; */
+  height: 90%;
+  border-radius: 0px 0px 15px 15px;
+  text-align: center;
+  /* background: url(../media/Loading_icon.gif) no-repeat 50% 47%; */
+  background-color: #fff;
+}
+.playBig {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 95px;
+}
+.fl {
+  /* line-height: 36px!important; */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80%;
+}
+.exit {
+  float: right;
+  width: 50px;
+  /* margin-top: 10px; */
+  /* margin-right: 10px; */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.previousNext {
+    /* position: absolute;
+    bottom: 20px;
+     top: 10px; 
+    left: 50%;
+    transform: translateX(-50%); */
+}
+#next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+#prev {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+@media (max-height:800px){ 
+  .exit { 
+    width: 30px;
+  }
+  #video {
+    margin-top: 20px;
+}
+.videoTitle{
+  line-height: 160%;
+}
+}
+
+
+.smallPM {
+  position: absolute;
+  top:9vh;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.bigPM {
+  position: absolute;
+  top:17vh;
+  left: 50%;
+  transform: translateX(-50%)
+}
+.loadding {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}

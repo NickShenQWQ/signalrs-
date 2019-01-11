@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Signalr通信测试客户端B</title>
+    <script src="/signalrs/js/jquery-3.1.1.min.js"></script>
+    <script src="/signalrs/js/jquery.signalR-2.2.3.min.js"></script>
+    <!--<script src="/signalr/hubs"></script>-->
+    <script src="/signalrs/js/DigiTiger.MessageService.RealTimeFunctionService.Client.js"></script>
+    <script src="/signalrs/js/is.js"></script>
+    <script>
+        var signalrClient = null;
+        var funcName = function (args) {
+            console.log("执行客户端返回Function");
+            console.log(JSON.parse(args));
+            var array = new Array();
+            array = JSON.parse(args);
+            $('#messageTables').append('<tr></tr>');
+            for (var i = 0; i < array.length; i++) {
+                $('#messageTables tr:last-child').append('<td>' + htmlEncode(array[i]) + '</td>');
+            }
+        }
+
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+        $(document).ready(function () {
+            var userName;
+            var userPhone;
+            var userMessage;
+            var createTime = new Date();
+            var array = new Array();
+            var args = [userName, userPhone, userMessage, createTime];
+            signalrClient = new _RealTimeFunctionServiceClient('aaaa');
+            //signalrClient.registerFunctionToServer('funcName', function (args) {
+            //    console.log("执行客户端返回Function");
+            //    console.log(JSON.parse(args));
+
+            //    funcName(args);
+
+            //});
+            signalrClient.registerFunctionToServer('funcName', funcName);
+
+            signalrClient.start(function () {
+                console.log(".......", signalrClient);
+                //funcB(args);
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <h2>客户端B</h2>
+    <div class="container">
+        <h4>执行FunctionB()</h4>
+        <table width="60%" border="1" align="center" id="messageTables">
+            <tr>
+                <td width="20%">姓名</td>
+                <td width="20%">手机号</td>
+                <td width="30%">发送内容</td>
+                <td width="20%">发送时间</td>
+            </tr>
+        </table>
+    </div>
+    <input type="button" value="注册FunctionB()" onclick="registerFunctionB()" />
+</body>
+</html>

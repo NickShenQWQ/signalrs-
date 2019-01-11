@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Signalr通信测试客户端B</title>
+    <script src="/signalrs/js/jquery-3.1.1.min.js"></script>
+    <script src="./js/pdf.js"></script>
+    <script src="/signalrs/js/jquery.signalR-2.2.3.min.js"></script>
+    <!--<script src="/signalr/hubs"></script>-->
+    <script src="/signalrs/js/DigiTiger.MessageService.RealTimeFunctionService.Client.js"></script>
+    <script src="/signalrs/js/is.js"></script>
+
+    <script src="./js/get.js"></script>
+
+</head>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+
+        height: 100vh;
+        background: #000;
+    }
+
+    .playBig {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10%;
+    }
+
+    .videoTitle,
+    .pdfTitle {
+        position: absolute;
+    top: 3%;
+    /* height: 5rem; */
+    /* max-width: 50%; */
+    background-image: linear-gradient(90deg, #0058df, #0082c066);
+    font-size: 3rem;
+    color: #fff;
+    line-height: 5rem;
+    padding: 0px 2rem;
+    z-index: 999999;
+    }
+
+    .titleArr span {
+        font-size: 1.2rem !important;
+        ;
+        font-weight: 500 !important;
+        ;
+        background-color: #00000000 !important;
+    }
+    .videoDesc {
+color: #fff;
+position: absolute;
+top: 6.45vh;
+width: 50rem;
+left:0%;
+background-image: linear-gradient(90deg, #0058df, #0082c066) !important;
+padding: 0 1rem;
+font-size: 1.2rem !important;
+}
+
+    .bigVideo {
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        width: 101%;
+        margin: 0px -3px;
+    }
+
+    #the-canvas {
+        /* width: 100%; */
+        /* height: 100%; */
+        max-height: 100vh;
+    max-width: 100vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    }
+
+    #video {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        /* display: none; */
+        z-index: 0;
+    }
+
+    .pdfTitle {
+        display: none;
+    }
+
+    .bigPdf {
+        margin: 0 auto;
+        text-align: center;
+        height: 100%;
+    }
+
+    .bigVideo,.bigPdf {
+        z-index: 2;
+    }
+    .black{
+        background: #000;
+        height: 100vh;
+    }
+    
+    iframe {
+    width: 100vw;
+    height: 100vh; 
+    }
+    /* .videoDesc {
+color: #fff;
+position: absolute;
+top: 12.5vh;
+width: 50rem;
+left:0%;
+background-image: linear-gradient(90deg, #0058df, #0082c066) !important;
+padding: 1rem;
+font-size: 1.2rem !important;
+} */
+
+</style>
+
+<body>
+    <div class="black">
+
+    
+    <div class="bigVideo">
+        <!-- <video  id="bigvideo"  src= "http://192.168.1.144/img/1024/convey_animation.mp4" poster="http://bsci1820.dwechat.com:80/img/1023/sensor图片.jpg"  style="   width: 100%;;height: 100%;" onended="videoEnd()"></video> -->
+
+        <div class="videoTitle">
+        </div>
+        <div class="videoDesc">
+            <div class="videoDescTop">
+                <div class="newContent"></div> 
+                  <!-- <div class="titleArr opaticyno"></div>
+                <hr class="opaticyno1">
+                <div class="opaticyno2">产品描述特点：</div>
+              <div class="descArr opaticyno2"></div> -->
+            </div>
+        </div>
+        <img class="playTheVideo playBig" src="./img/playbig.png" alt="">
+    </div>
+    <div class="bigPdf">
+
+        <!-- <canvas  id="the-canvas"></canvas> -->
+        <div class="pdfTitle">
+        </div>
+        <img style="display: none" class="pdfIcon" id="prev" src="./img/Previous.png" alt="">
+        <img style="display: none" class="pdfIcon" id="next" src="./img/Next.png" alt="">
+        <!-- 页数 -->
+        <span style="display: none">Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+    </div>
+    <div class="iframe">
+
+        <iframe src="" frameborder="0"></iframe>
+    </div>
+</div>
+    <div class="black">
+            <video id="video"  src=""></video>
+
+    </div>
+</body>
+
+</html>

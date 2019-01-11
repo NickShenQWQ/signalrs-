@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Signalr实时通信用户端</title>
+</head>
+<body>
+    <h2>用户端A</h2>
+    <div class="allPage">
+        <div class="registerCard">
+            <div class="container">
+                <div class="form">
+                    <input type="text" name="userName" id="userName" placeholder="姓名" required="required" value="" /><br />
+                    <input type="text" name="userPhone" id="userPhone" placeholder="手机号码" required="required" value="" /><br />
+                    <input type="text" name="userMessage" id="userMessage" placeholder="消息内容" required="required" value="" /><br />
+                    <input type="button" value="发送给客户端B" onclick="sendClient()" /><br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/signalrs/js/jquery-3.1.1.min.js"></script>
+    <script src="/signalrs/js/jquery.signalR-2.2.3.min.js"></script>
+    <!--<script src="/signalr/hubs"></script>-->
+    <script src="/signalrs/js/DigiTiger.MessageService.RealTimeFunctionService.Client.js"></script>
+    <script src="/signalrs/js/is.js"></script>
+
+    <script>
+        var userName;
+        var userPhone;
+        var userMessage;
+        var channel;
+        var createTime = new Date();
+        var args;
+        var funcName = "funcName";
+
+        var signalrClient = new _RealTimeFunctionServiceClient();
+
+        function sendClient() {
+            userName = $("#userName").val();
+            userPhone = $("#userPhone").val();
+            userMessage = $("#userMessage").val();
+            channel = "aaaa";
+            args = [userName, userPhone, userMessage, createTime];
+            console.log(args);
+            signalrClient.start(function () {
+                if (channel != null) {
+                        signalrClient.invokeServerFunctionByChannel(channel, funcName, args).done(function (e) {
+                        console.log("获取Server方法成功,当前funcName:" + funcName + "-当前Channel:" + channel);
+                        console.log(JSON.parse(e));
+                    }).fail(function (r) {
+                        console.log("获取Server方法失败!");
+                    });
+                } else {
+                    signalrClient.invokeServerFunction(funcName, args).done(function (e) {
+                        console.log("获取Server方法成功,当前funcName:" + funcName);
+                        console.log(JSON.parse(e));
+                        args = new Array(e);
+                        console.log(args);
+                    }).fail(function (r) {
+                        console.log("获取Server方法失败!");
+                    });
+                }
+            });
+
+        }
+
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+</body>
+</html>
