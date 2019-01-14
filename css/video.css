@@ -4,7 +4,7 @@
     display: none;
   }
   /* pdf弹窗 */
-  .pdfModel {
+  .pdfModel,.liveModel {
     display: none;
   }
   #video1 {
@@ -35,6 +35,7 @@
     height: 100%;
   }
   .modelTitle {
+    cursor: pointer;
     background: -webkit-linear-gradient(left, #0082c0, #0058df);
     background: -o-linear-gradient(right, #0082c0, #0058df);
     background: -moz-linear-gradient(right, #0082c0, #0058df);
@@ -173,3 +174,6 @@ display:none !important;
   left: 50%;
   transform: translate(-50%,-50%);
 }
+
+
+a{text-decoration:none}

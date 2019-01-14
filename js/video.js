@@ -51,6 +51,7 @@ funcName = "addVideo";
     $(".pdfModel").hide();
     $("#the-canvas").remove();
     funcName = "close" ;
+    $(".liveModel").hide();
     send();
   }
 // 发送及时通讯
@@ -489,16 +490,29 @@ function liClick2(children, n,title2) {
       //   $(".back").remove();
       // }
 
-
+      // 直播链接列表
+      var liveList = [];
       // 直播
-     if(children[i].name == "LiveTest") {
-        console.log("直播");
+     if(children[i].currentUrl.split("/")[1] == "活动直播") {
+        for(let i=0;i<children.length;i++){
+       
+          liveList.push(children[i].properties.liveLink);
+          console.log("直播",children[i]);
+          $(".classList4").append( '<div class="back"><div class="newBlank" style="padding-bottom: 0;"><div class="liveTitle modelTitle">'+children[i].properties.liveName+
+          '</div><div class="whiteBlank"></div></div>');
+        }
 
-        $(".classList4").append( '<div class="back"><div class="newBlank"><div class="modelTitle">'+children[i].properties.liveName+
-        '</div><div class="whiteBlank">	<iframe  src='+ children[i].properties.liveLink +'></div></div>');
-        funcName = 'live';
-        args =  [children[i].properties.liveLink]
-        send();
+        $(".liveTitle").click(function(){
+            $(".liveModel").show();
+            console.log(liveList);
+            // $("liveIframe").attr("src",)
+        })
+        // <a href='+ children[i].properties.liveLink +'></a>
+
+        // funcName = 'live';
+        // args =  [children[i].properties.liveLink]
+        // console.log(args)
+        // send();
     }
 
 
@@ -1253,7 +1267,7 @@ function downChild(filelist,o,p){
     type: "post",
     url: getlocalhostIIS+"/api/filecache/GetDownloadList",
     data: file,
-    success: function (res2) {
+    success: function (modelTitleres2) {
       $("body").css("pointer-events","none");
       // 2、再次比对，获取所需下载文件列表(返回前端)
       console.log("%cres4","background:#ccc",res2);
